@@ -1,4 +1,3 @@
-<#include "/common/macro/common_macro.ftl">
 <#import "functions.ftl" as fun>
 <footer id="footer" class="footer bg-white">
 	<div class="footer-social">
@@ -24,18 +23,18 @@
 		<div class="footer-container">
 			<div class="meta-item meta-copyright">
 				<div class="meta-copyright-info">
-                    <a href="${context!}" class="info-logo">
+                    <a href="${blog_url!}" class="info-logo">
                         <#if settings.footer_logo??>
-                        <img src="${settings.footer_logo}" alt="${options.blog_title!}" />
+                        <img src="${settings.footer_logo}" alt="${blog_title!}" />
                         <#else>
-                        ${options.blog_title!}
+                        ${blog_title!}
                         </#if>
                     </a>
 					<div class="info-text">
                     	<p>Theme is <a href="https://github.com/chakhsu/pinghsu" target="_blank">Pinghsu</a> by <a href="https://www.linpx.com/" target="_blank">Chakhsu</a></p>
-						<p>Powered by <a href="https://github.com/halo-dev/halo" target="_blank" rel="nofollow">Halo</a></p>
-						<p>&copy; ${.now?string("yyyy")} <a href="${context!}">${options.blog_title!}</a></p>
-                        <p><@footer_info></@footer_info></p>
+						<p>Powered by <a href="https://halo.run" target="_blank" rel="nofollow">Halo</a></p>
+						<p>&copy; ${.now?string("yyyy")} <a href="${blog_url!}">${blog_title!}</a></p>
+                        <p><@global.footer /></p>
 					</div>
 				</div>
 			</div>
@@ -147,20 +146,19 @@ postDirectoryBuild();
 </script>
 </#if>
 
-<#--<?php $this->footer(); ?>-->
-<script src="//cdnjs.loli.net/ajax/libs/headroom/0.9.1/headroom.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/headroom.js@0.9.1/dist/headroom.min.js"></script>
 
 <#if settings.post_highlight!true>
-<script src="//cdnjs.loli.net/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
 </#if>
 
 
 <#if settings.pjax!false>
-<script src="${static!}/source/js/instantclick.min.js?v20140319"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantclick@3.1.0/instantclick.min.js"></script>
 </#if>
 
 <#if settings.fast_click!false>
-<script src="//cdnjs.loli.net/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js"></script>
 </#if>
 
 <script>
@@ -241,9 +239,6 @@ MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 </script>
 <script src="//cdnjs.loli.net/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </#if>
-
-<#-- 统计代码 -->
-<@statistics />
 
 <#if settings.pjax!false>
 <script data-no-instant>
